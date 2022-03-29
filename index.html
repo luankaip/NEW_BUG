@@ -1,1 +1,69 @@
+<!DOCTYPE html>
+<html lang="zh_CN">
 
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>demo</title>
+  <style type="text/css">
+    html, body { height: 100%; }
+    @keyframes loadingDiv {to {transform: rotate(360deg);}}
+    @keyframes loadingSpan {to {transform: rotate(-360deg);}}
+    body {
+    	margin: 0;
+    	padding: 0;
+    	height: 100vh;
+    	display: flex;
+    	overflow: hidden;
+    	background: #34495e;
+    	align-items: center;
+    	justify-content: center;
+    }
+    .loading {
+    	width: 200px;
+    	height: 200px;
+    	border-radius: 50%;
+    	box-sizing: border-box;
+    	background: rgba(0, 0, 0, 0.3);
+    	border-top: 10px double #e74c3c;
+    	animation: loadingDiv 2s linear infinite;
+    }
+    .loading::after, .loading::before {
+    	content: '';
+    	width: 200px;
+    	height: 200px;
+    	position: relative;
+    	left: 0;
+    	border-radius: 50%;
+    	display: inline-block;
+    	box-sizing: border-box;
+    }
+    .loading::before {
+    	border-top: 10px double #e67e22;
+    	top: -10px;
+    	transform: rotate(120deg);
+    }
+    .loading::after {
+    	border-top: 10px double #3498db;
+    	top: -227px;
+    	transform: rotate(240deg);
+    }
+    .loading span {
+    	color: #fff;
+    	position: relative;
+    	top: -125px;
+    	left: 75px;
+    	display: inline-block;
+    	animation: loadingSpan 2s linear infinite;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="loading">
+    <span>loading</span>
+  </div>
+</body>
+
+</html>
